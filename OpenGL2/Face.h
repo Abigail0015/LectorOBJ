@@ -10,15 +10,17 @@ class Face
 private:
 	int faceNumber;
 	vector<int> vertices;
-	vector<int>::iterator verticesIterator;
+	vector<int>::iterator verticesOfFaceIterator;
+	vector<vertex>::iterator VertexListIlterator;
 
 public:
 
 	Face(int _faceNumber);
 	void addVertex(int vertexID);
 	int getFaceNumber();
-	void printGprahicsFaceVertexWireframe(vector<vertex> VertexList);
+	void printGprahicsFaceVertexWireframe(vector<vertex> VertexList, float color[]);
 	void addVertexToFace(int nVertex);
+	void ShowFaceVertices();
 };
 
 #endif

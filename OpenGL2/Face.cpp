@@ -15,20 +15,28 @@ int Face::getFaceNumber()
 	return faceNumber;
 }
 
-void Face::printGprahicsFaceVertexWireframe(vector<vertex> VertexList)
+void Face::printGprahicsFaceVertexWireframe(vector<vertex> VertexList,float color[])
 {
-	glColor3f(0.0, 1.0, 1.0);
-	vector<vertex>::iterator itrVERTEX;
-	itrVERTEX = VertexList.begin();
-	vector<int> verticesOfFace;
-	vector<int>::iterator itrVerticesOfFace;
+	glColor3f(color[0], color[1],color[2]);
+	vector<vertex>::iterator vertexIterator;
+	vertexIterator = VertexList.begin();
 	glBegin(GL_LINE_LOOP);
-	for (itrVerticesOfFace = verticesOfFace.begin(); itrVerticesOfFace != verticesOfFace.end(); ++itrVerticesOfFace)
-		glVertex3f(itrVERTEX[*(itrVerticesOfFace)-1].getPosX(), itrVERTEX[*(itrVerticesOfFace)-1].getPosY(), itrVERTEX[*(itrVerticesOfFace)-1].getPosZ());
+	for (verticesOfFaceIterator = vertices.begin(); verticesOfFaceIterator != vertices.end(); ++verticesOfFaceIterator)
+		glVertex3f(vertexIterator[*(verticesOfFaceIterator)-1].getPosX(), vertexIterator[*(verticesOfFaceIterator)-1].getPosY(), vertexIterator[*(verticesOfFaceIterator)-1].getPosZ());
+
 	glEnd();
+
+
 }
 
 void Face::addVertexToFace(int nVertex)
 {
 	vertices.push_back(nVertex);
+}
+
+void Face::ShowFaceVertices()
+{
+	for (verticesOfFaceIterator = vertices.begin(); verticesOfFaceIterator != vertices.end(); ++verticesOfFaceIterator)
+		cout << "<" << *verticesOfFaceIterator << ">";
+	cout << endl;
 }
